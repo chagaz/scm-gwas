@@ -102,3 +102,7 @@ ENV/
 
 # Temporary files
 *~
+
+# Ignore non-code repositories
+data
+results
