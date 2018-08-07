@@ -32,7 +32,7 @@ BLOCK_SIZE = 100000
 def _create_hdf5_file_no_chunk_caching(path):
     """
     Create a HDF5 file.
-    Initially from kover/core/kover/create.py 
+    Inspired from kover/core/kover/create.py 
 
     Arguments:
     ---------
@@ -69,6 +69,7 @@ def from_tsv(tsv_path, output_path, phenotype_name, phenotype_path, gzip,
              progress_callback=None):
     """
     Create HDF5 file from a white-space-separated file.
+    Inspired from kover/core/kover/dataset/create.py    
 
     tsv_path: file path
         path to the white-space separated file containing the genotypes
