@@ -1,0 +1,3 @@
+[submodule "code/kover"]
+	path = code/kover
+	url = https://github.com/chagaz/kover
