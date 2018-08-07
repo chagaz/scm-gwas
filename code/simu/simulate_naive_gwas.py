@@ -102,10 +102,10 @@ def save_data(X, y, causl, w_causl, data_rep):
     -------
     <data_rep>/X.data
         path to the white-space separated file containing the genotypes
-        as a matrix with as many lines as samples and as many columns as SNPs
-        each entry in the matrix is the SNP binary encoding.
-        Each line starts with a genome identifier.
-        Each column starts with a SNP identifier.    
+        as a matrix with as many lines as SNPs and as many columns as samples.
+        Each entry in the matrix is the SNP binary encoding.
+        Each column starts with a genome identifier.
+        Each line starts with a SNP identifier.    
         
     <data_rep>/y.data
         path to file containing the phenotypes
@@ -131,10 +131,10 @@ def save_data(X, y, causl, w_causl, data_rep):
         os.mkdir(data_rep)
     
     # Save genotype data
-    df = pd.DataFrame(X)
-    df.index = ['Sample_%d' % ix for ix in range(X.shape[0])]
+    df = pd.DataFrame(X.T)
+    df.index = ['SNP_%d' % ix for ix in range(X.shape[1])]
     df.to_csv(X_fname, sep=' ',
-              header=['SNP_%d' % ix for ix in range(X.shape[1])],
+              header=['Sample_%d' % ix for ix in range(X.shape[0])],
               index=True)
     del df
 
@@ -161,10 +161,10 @@ def main():
     Will generate
     ../../data/simu1/X.data
         path to the white-space separated file containing the genotypes
-        as a matrix with as many lines as samples and as many columns as SNPs
-        each entry in the matrix is the SNP binary encoding.
-        Each line starts with a genome identifier.
-        Each column starts with a SNP identifier.    
+        as a matrix with as many lines as SNPs and as many columns as samples.
+        Each entry in the matrix is the SNP binary encoding.
+        Each column starts with a genome identifier.
+        Each line starts with a SNP identifier.    
         
     ../../data/simu1/y.data
         path to file containing the phenotypes
